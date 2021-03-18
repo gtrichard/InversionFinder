@@ -102,3 +102,11 @@ InversionFinder
     |__genome4.vs.genome3/
     |__genome4.vs.genome4/
 ```
+
+## GENERALISATION
+
+This pipeline has been designed to find inversions in 17 genomes of plants of the Brassica genus. Some values are hard-coded and thus need to be changed to be adapted to other genomes, namely:
+
+1. Prefix of the fasta files that need to be processed line 1 of InversionFinder.snakefile
+2. The chromosome name cleaning line 13 of get_inversions_from_mummer.sh (if all your genomes have the same pattern, i.e. chr1, chr2, this doesn't need to be modified).
+3. The chromosome names pattern to recognize to filter intra chromosomal inversions line 23 of get_inversions_from_mummer.sh.
