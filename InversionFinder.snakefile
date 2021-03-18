@@ -1,4 +1,4 @@
-genomes='bjuncea_T84-66 bjuncea_varuna bnapus_darmor10 bnapus_ganganF73 bnapus_no2127 bnapus_quintaA bnapus_rccs0 bnapus_shengli3 bnapus_tapidor3 bnapus_westar bnapus_zheyou73 bnapus_zs11 bnigra_c2 bnigra_ni100 boleracea_hdem boleracea_d134 brapa_chiifu3 brapa_z1'
+genomes='bjuncea_T84-66 bjuncea_varuna bnapus_darmor10 bnapus_ganganF73 bnapus_no2127 bnapus_quintaA bnapus_shengli3 bnapus_tapidor3 bnapus_westar bnapus_zheyou73 bnapus_zs11 bnigra_c2 bnigra_ni100 boleracea_hdem boleracea_d134 brapa_chiifu3 brapa_z1'
 
 rule all:
     input:
