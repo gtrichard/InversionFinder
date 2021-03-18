@@ -29,8 +29,8 @@ Clone this repository and install the following conda environments that you acti
 ```
 gitclone https://github.com/gtrichard/InversionFinder/
 conda create -n bedtools -c bioconda bedtools
-conda create -n mummer4 -c bioconda mummer
-conda create -n imagemagick -c bioconda imagemagick
+conda create -n mummer4 -c bioconda mummer4
+conda create -n imagemagick -c conda-forge imagemagick
 conda create -n gnuplot -c bioconda gnuplot
 conda create -n snakemake -c bioconda snakemake
 ```
@@ -42,7 +42,7 @@ Activate and stack the different conda environments and launch the pipeline snak
 
 ```
 conda activate --stack bedtools 
-conda activate --stack mummer 
+conda activate --stack mummer4
 conda activate --stack imagemagick 
 conda activate --stack gnuplot 
 conda activate --stack snakemake
