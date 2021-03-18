@@ -36,3 +36,50 @@ conda activate --stack snakemake
 snakemake -s InversionFinder.snakefile -p --cluster 'sbatch --mincpus {params.threads} --mem-per-cpu {params.memory}' --jobs 10 -w 200 -k
 ```
 
+
+## INPUT
+
+As input, the pipeline uses a `fasta/` folder containing the genomes that will be aligned. The file names must end with the .chr.fasta suffix.
+The name of the genomes must be changed in the header of the snakefile, excluding the .chr.fasta suffix.
+
+## OUTPUT
+
+In the `output/` folder, each genome comparison results are stored in a different folder. It notably contains the following files:
+
+- `nucmer.delta`, storing the raw alignment data.
+- `nucmer.delta.filtered.plot`, storing the filtered alignments used for plotting and inversions finding.
+- `nucmer.delta.filtered.mummerplot.pdf`, alignments plot.
+- `inversions_{genome1}_{genome2}.named.bed`,  inversions coordinates of the reference genome (first of the two genome names in the right columns).
+
+## FOLDER STRUCTURE
+
+```
+|
+|__InversionFinder.snakefile
+|
+|__fasta/
+|   |
+|   |__genome1.chr.fasta
+|   |__genome2.chr.fasta
+|   |__genome3.chr.fasta
+|   |__genome4.chr.fasta
+|
+|__output/
+    |
+    |__genome1.vs.genome1/
+    |__genome1.vs.genome2/
+    |__genome1.vs.genome3/
+    |__genome1.vs.genome4/
+    |__genome2.vs.genome1/
+    |__genome2.vs.genome2/
+    |__genome2.vs.genome3/
+    |__genome2.vs.genome4/
+    |__genome3.vs.genome1/
+    |__genome3.vs.genome2/
+    |__genome3.vs.genome3/
+    |__genome3.vs.genome4/
+    |__genome4.vs.genome1/
+    |__genome4.vs.genome2/
+    |__genome4.vs.genome3/
+    |__genome4.vs.genome4/
+```
