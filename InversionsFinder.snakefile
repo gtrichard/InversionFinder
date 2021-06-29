@@ -1,7 +1,7 @@
 genomes='bnapus_darmor10 bnapus_ganganF73 bnapus_no2127 bnapus_quintaA bnapus_shengli3 bnapus_tapidor3 bnapus_westar bnapus_zheyou73 bnapus_zs11 boleracea_hdem brapa_chiifu3'
 
 output_folder = "output_95_colza_ch_hdem"
-input_folder = "../../fasta"
+input_folder = "fasta"
 
 rule all:
     input:
