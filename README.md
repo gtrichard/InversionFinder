@@ -73,7 +73,7 @@ The output folder stucture and logs are created automatically by the pipeline. O
 ```
 InversionFinder
 |
-|__InversionFinder.snakefile
+|__InversionsFinder.snakefile
 |__get_inversions_from_mummer.sh
 |
 |__fasta/
