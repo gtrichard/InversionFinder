@@ -1,10 +1,10 @@
-# InversionFinder
+# InversionsFinder
 Snakemake-based pipeline to align multiple genomes and find large inversions.
 
 
 ## DESCRIPTION
 
-InversionFinder is a Snakemake pipeline using Mummer, Bedtools, Imagemagick and Gnuplot.
+InversionsFinder is a Snakemake pipeline using Mummer, Bedtools, Imagemagick and Gnuplot.
 
 Given a list of genomes, it performs whole genome alignment using `nucmer` for each and every genome comparison in a two by two fashion. Alignments are then filtered using `delta-filter`, and further filtered during the plotting step of `mummerplot`. The resulting alignment plots are converted to pdf using Imagemagick `convert`. The alignment coordinates in both genomes are converted to a tab-delimited file using `show-coords` from Mummer, which is then parsed to keep only the small inverted synteny blocks aligning on the same chromosomes. The obtained small inverted synteny blocks coordinates are iteratively merged by `bedtools merge` and then size-selected to only keep large inversions (get_inversions_from_mummer.sh). The pipeline mainly executes the following shell commands:
 
@@ -27,7 +27,7 @@ bedtools merge -d 200000 | bedtools merge -d 700000 | awk -v OFS="\t" '{print $1
 Clone this repository and install the following conda environments that you activate and `--stack` before launching the pipeline.
 
 ```
-gitclone https://github.com/gtrichard/InversionFinder/
+gitclone https://github.com/gtrichard/InversionsFinder/
 conda create -n bedtools -c bioconda bedtools
 conda create -n mummer4 -c bioconda mummer4
 conda create -n imagemagick -c conda-forge imagemagick
@@ -46,7 +46,7 @@ conda activate --stack mummer4
 conda activate --stack imagemagick 
 conda activate --stack gnuplot 
 conda activate --stack snakemake
-snakemake -s InversionFinder.snakefile -p --cluster 'sbatch --mincpus {params.threads} --mem-per-cpu {params.memory}' --jobs 10 -w 200 -k
+snakemake -s InversionsFinder.snakefile -p --cluster 'sbatch --mincpus {params.threads} --mem-per-cpu {params.memory}' --jobs 10 -w 200 -k
 ```
 
 
@@ -107,6 +107,6 @@ InversionFinder
 
 This pipeline has been designed to find inversions in 17 genomes of plants of the Brassica genus. Some values are hard-coded and thus need to be changed to be adapted to other genomes, namely:
 
-1. Prefix of the fasta files that need to be processed line 1 of InversionFinder.snakefile
+1. Prefix of the fasta files that need to be processed line 1 of InversionsFinder.snakefile
 2. The chromosome name cleaning line 13 of get_inversions_from_mummer.sh (if all your genomes have the same pattern, i.e. chr1, chr2, this doesn't need to be modified).
 3. The chromosome names pattern to recognize to filter intra chromosomal inversions line 23 of get_inversions_from_mummer.sh.
