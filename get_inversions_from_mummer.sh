@@ -29,7 +29,7 @@ sleep 5
 
 echo "Step: interative small inversions coordinates merging and size filtering"
 
-tail -n +2 $1_tmp4 | awk -v OFS="\t" '{print $1,$2,$3,$3-$2}' | bedtools merge -d 200000 | bedtools merge -d 700000 | awk -v OFS="\t" '{print $1,$2,$3,$3-$2}' | awk '$4 > 500000 {print ;}' > $2
+tail -n +2 $1_tmp4 | awk -v OFS="\t" '{print $1,$2,$3,$3-$2}' | bedtools merge -d 200000 | bedtools merge -d 1000000 | awk -v OFS="\t" '{print $1,$2,$3,$3-$2}' | awk '$4 > 1000000 {print ;}' > $2
 
 sleep 5
 
