@@ -71,7 +71,7 @@ In the `output/` folder, each genome comparison results are stored in a differen
 The output folder stucture and logs are created automatically by the pipeline. Only the fasta folder is requied to be next to the InversionFinder.snakefile to launch the pipeline.
 
 ```
-InversionFinder
+InversionsFinder
 |
 |__InversionsFinder.snakefile
 |__get_inversions_from_mummer.sh
